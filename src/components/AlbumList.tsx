@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import { Album } from '@/types/album';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';

@@ -1,8 +1,8 @@
 
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Album } from '@/types/album';
-import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import AlbumList from '@/components/AlbumList';
 
 const Index = () => {
