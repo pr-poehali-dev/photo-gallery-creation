@@ -10,7 +10,9 @@ const Index = () => {
 
   const handleAddAlbum = () => {
     const newAlbum: Album = {
-      id: uuidv4(),
+
+      id: generateId(),
+
       title: 'new',
       photos: []
     };
