@@ -1,10 +1,11 @@
 
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from 'react-router-dom';
 import { Album } from '@/types/album';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
+
 
 interface AlbumListProps {
   albums: Album[];

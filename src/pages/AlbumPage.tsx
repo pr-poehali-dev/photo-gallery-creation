@@ -1,9 +1,10 @@
 
 import { useParams, useNavigate } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { Album } from '@/types/album';
 import AlbumView from '@/components/AlbumView';
+import { generateId } from '@/lib/utils';
+
 
 const AlbumPage = () => {
   const { id } = useParams<{ id: string }>();

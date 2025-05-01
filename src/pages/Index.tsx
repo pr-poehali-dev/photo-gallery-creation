@@ -1,9 +1,9 @@
 
-import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { Album } from '@/types/album';
 import AlbumList from '@/components/AlbumList';
+import { generateId } from '@/lib/utils';
+
 
 const Index = () => {
   const [albums, setAlbums] = useLocalStorage<Album[]>('photo-albums', []);
