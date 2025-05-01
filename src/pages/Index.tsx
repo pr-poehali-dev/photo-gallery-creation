@@ -1,13 +1,44 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { Album } from '@/types/album';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
+import AlbumList from '@/components/AlbumList';
 
 const Index = () => {
+  const [albums, setAlbums] = useLocalStorage<Album[]>('photo-albums', []);
+
+  const handleAddAlbum = () => {
+    const newAlbum: Album = {
+      id: uuidv4(),
+      title: 'new',
+      photos: []
+    };
+    setAlbums([...albums, newAlbum]);
+  };
+
+  const handleDeleteAlbum = (id: string) => {
+    setAlbums(albums.filter(album => album.id !== id));
+  };
+
+  const handleDeleteAllAlbums = () => {
+    setAlbums([]);
+  };
+
+  const handleRenameAlbum = (id: string, newTitle: string) => {
+    setAlbums(albums.map(album => 
+      album.id === id ? { ...album, title: newTitle } : album
+    ));
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
-    </div>
+    <AlbumList 
+      albums={albums}
+      onAddAlbum={handleAddAlbum}
+      onDeleteAlbum={handleDeleteAlbum}
+      onDeleteAllAlbums={handleDeleteAllAlbums}
+      onRenameAlbum={handleRenameAlbum}
+    />
   );
 };
 
